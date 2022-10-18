@@ -9,8 +9,7 @@ searchBar.addEventListener('keyup', (e) => {
 
     const filteredCharacters = makeupList.filter((product) => {
         return (
-              product.name.toLowerCase().includes(searchString)||
-              product.brand.toLowerCase().includes(searchString)
+              product.name.toLowerCase().includes(searchString)
         );
     });
     displayproduct(filteredCharacters);
