@@ -1,51 +1,50 @@
-// declraing variabls
-const makeup = document.getElementById('makeup');
+const charactersList = document.getElementById('charactersList');
 const searchBar = document.getElementById('search');
-// pass the object in to the array object
-let makeuplist= [];
-// using map
+let hpCharacters= [];
+
 searchBar.addEventListener('keyup', (e) => {
     const searchString = e.target.value.toLowerCase();
 
-    const filteredCharacters = makeuplist.filter((product) => {
+    const filteredCharacters = hpCharacters.filter((character) => {
         return (
-              product.name.toLowerCase().includes(searchString)
+              character.name.toLowerCase().includes(searchString)
         );
     });
-    displayproduct(filteredCharacters);
+    displayCharacters(filteredCharacters);
 });
-// getting object from api
-const makeupproduct = async () => {
+
+const loadcharecters = async () => {
     try{
     const res = await fetch("https://makeup-api.herokuapp.com/api/v1/products.json");
-    makeuplist = await res.json();
-    console.log(makeuplist)
-    displayproduct(makeuplist);
+    hpCharacters = await res.json();
+    console.log(hpCharacters)
+    displayCharacters(hpCharacters);
     }catch(error){
     console.log("errormsg:",error)
     }
     };
-// diplay the product
-const displayproduct = (products)=>{
+
+const displayCharacters = (characters)=>{
     
-    const htmlString = products
-    .map((product) =>{
+    const htmlString = characters
+    .map((character) =>{
         return `<div class="container">
         <div class="name">
-        <h3>${product.name}</h3>
-        <p>${product.brand}</p>
+        <h3>${character.name}</h3>
+        <p>${character.brand}</p>
 </div>
 <div class="img">
-<img src="${product.image_link}" alt="${product.name}">
+<img src="${character.image_link}" alt="${character.name}">
 </div>
-<div class="link"> <a href="${product.product_link}">link</a></div>
+<div class="link"> <a href="${character.product_link}">link</a></div>
 <p class="des">DESCRIPTION: <br>
-   ${product.description  }
+   ${character.description  }
 </p>
 </div>`;
     })
 .join('');
-makeup.innerHTML = htmlString;
+charactersList.innerHTML = htmlString;
 };
-// call function
-makeupproduct();
+
+loadcharecters();
+
