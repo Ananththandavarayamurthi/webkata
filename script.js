@@ -38,7 +38,7 @@ const displayproduct = (products)=>{
 <div class="img">
 <img src="${product.image_link}" alt="${product.name}">
 </div>
-<div class="link"> <a href="${product.product_link}">link</a></div>
+<div class="link"> <button type="button" class="btn btn-primary btn-sm" href="${product.product_link}">shopnow</button></div>
 <p class="des">DESCRIPTION: <br>
    ${product.description  }
 </p>
