@@ -12,7 +12,7 @@ searchBar.addEventListener('keyup', (e) => {
               product.name.toLowerCase().includes(searchString)
         );
     });
-    displayCharacters(filteredCharacters);
+    displayproduct(filteredCharacters);
 });
 // getting object from api
 const makeupproduct = async () => {
