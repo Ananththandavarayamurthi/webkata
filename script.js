@@ -1,5 +1,5 @@
 // declraing variabls
-const makeup = document.getElementById('makeup');
+const charactersList = document.getElementById('charactersList');
 const searchBar = document.getElementById('search');
 // pass the object in to the array object
 let makeupList= [];
@@ -45,7 +45,7 @@ const displayproduct = (products)=>{
 </div>`;
     })
 .join('');
-makeup.innerHTML = htmlString;
+charactersList.innerHTML = htmlString;
 };
 // call function
 makeupproduct();
